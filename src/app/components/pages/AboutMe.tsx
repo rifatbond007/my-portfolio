@@ -2,7 +2,7 @@ export default function AboutMe() {
   return (
     <div>
       <h1 className="text-4xl mb-4">
-        Hello! I'm Rifat Hossain 👋
+        Hello! I'm Rifat Hossain
       </h1>
       <p className="text-gray-600 mb-6">
         Software Engineer specializing in Backend Systems.
@@ -12,7 +12,7 @@ export default function AboutMe() {
         <p>
           I'm a{" "}
           <span className="font-semibold">
-            Language Agnostic Engineer
+            Software Engineer
           </span>{" "}
           with experience across various technologies. My journey began in Game Development, and
           now I'm exploring the fascinating world of Backend and Distributed Systems.

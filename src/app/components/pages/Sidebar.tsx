@@ -1,5 +1,6 @@
 const profilePic = new URL("../../../assets/profile.png", import.meta.url).href;
 const coverPic = new URL("../../../assets/cover.png", import.meta.url).href;
+const rifat = new URL("../../../assets/profile.png", import.meta.url).href;
 
 type Section = "about" | "projects" | "honors" | "article";
 
@@ -34,7 +35,7 @@ export default function Sidebar({
           <div className="relative -mt-16 mx-auto w-32 h-32 mb-6">
             <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white shadow-lg flex items-center justify-center">
               <img
-                src={profilePic}
+                src={rifat}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
