@@ -1,4 +1,4 @@
-# [Your Name] — Personal Portfolio
+# rifatbroh Personal Portfolio
 
 A modern, responsive personal portfolio built with React and Vite to showcase projects, skills, and contact information.
 
