@@ -45,23 +45,35 @@ export default function Sidebar({
           <div className="text-center">
             <h3 className="font-semibold text-2xl">rifat hossain</h3>
             <p className="text-sm text-gray-600">
-              4X Hackathon Winner | Software Engineer
+              <span className="font-semibold">4X</span> Hackathon Winner | Software Engineer
             </p>
             <p className="text-sm text-gray-600">Cumilla, Bangladesh</p>
           </div>
 
-          <div className="flex gap-3 mt-6">
+          {/* Redesigned Button Section */}
+          <div className="flex flex-col sm:flex-row gap-3 mt-8">
             <button
               onClick={onResumeDownload}
-              className="flex-1 border border-black rounded-lg px-4 py-2 text-sm hover:bg-black hover:text-white transition-colors"
+              className="group flex flex-1 items-center justify-center gap-2 border border-gray-200 bg-white text-gray-700 rounded-xl px-4 py-2.5 text-sm font-bold shadow-sm hover:border-teal-500 hover:text-black transition-all duration-200 active:scale-95"
             >
-              📄 View Resume
+              <svg 
+                className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" 
+                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Resume
             </button>
+            
             <button
               onClick={onContactClick}
-              className="flex-1 bg-black text-white rounded-lg px-4 py-2 text-sm hover:bg-gray-800 transition-colors"
+              className="flex flex-[1.2] items-center justify-center gap-2 bg-black text-white rounded-xl px-4 py-2.5 text-sm font-bold shadow-lg shadow-gray-200 hover:bg-zinc-800 transition-all duration-200 active:scale-95"
             >
-              contact me
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+              </span>
+              Contact Me
             </button>
           </div>
         </div>
@@ -92,7 +104,7 @@ export default function Sidebar({
               activeSection === "honors" ? "font-semibold" : ""
             }`}
           >
-            Honor & Awards
+            Awards
           </button>
           <button
             onClick={() => onSectionChange("article")}
