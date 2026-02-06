@@ -2,7 +2,7 @@ const profilePic = new URL("../../../assets/profile.png", import.meta.url).href;
 const coverPic = new URL("../../../assets/cover.png", import.meta.url).href;
 const rifat = new URL("../../../assets/profile.png", import.meta.url).href;
 
-type Section = "about" | "projects" | "honors" | "article";
+type Section = "about" | "projects" | "honors" | "article" | "problemSolving";
 
 interface SidebarProps {
   activeSection: Section;
@@ -106,6 +106,15 @@ export default function Sidebar({
           >
             Awards
           </button>
+            <button
+            onClick={() => onSectionChange("problemSolving")}
+            className={`w-full text-left text-lg hover:font-semibold transition-all ${
+              activeSection === "problemSolving" ? "font-semibold" : ""
+            }`}
+          >
+            Competitive
+          </button>
+
           <button
             onClick={() => onSectionChange("article")}
             className={`w-full text-left text-lg hover:font-semibold transition-all ${

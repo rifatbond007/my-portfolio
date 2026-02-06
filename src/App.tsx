@@ -16,8 +16,9 @@ import AboutMe from "./app/components/pages/AboutMe";
 import Projects from "./app/components/pages/Projects";
 import HonorsAwards from "./app/components/pages/HonorsAwards";
 import Article from "./app/components/pages/Article";
+import ProblemSolving from "./app/components/pages/ProblemSolving";
 
-type Section = "about" | "projects" | "honors" | "article";
+type Section = "about" | "projects" | "honors" | "article" | "problemSolving";
 
 // --- Terminal Loader Component ---
 const TerminalLoader = () => {
@@ -90,6 +91,7 @@ export default function App() {
       case "projects": return <Projects />;
       case "honors": return <HonorsAwards />;
       case "article": return <Article />;
+      case "problemSolving": return <ProblemSolving />;
       default: return <AboutMe />;
     }
   };
