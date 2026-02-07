@@ -1,4 +1,4 @@
-# rifatbroh Personal Portfolio
+# rifatbroh Personal Portfolio for self
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/234d6593-ba69-4530-a082-9f90d2a7686f/deploy-status)](https://app.netlify.com/projects/rifatbroh-me/deploys)
 
