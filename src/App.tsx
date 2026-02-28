@@ -5,18 +5,18 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "./app/components/ui/dialog";
-import { Input } from "./app/components/ui/input";
-import { Textarea } from "./app/components/ui/textarea";
+} from "./components/ui/dialog";
+import { Input } from "./components/ui/input";
+import { Textarea } from "./components/ui/textarea";
 
 // Import page components
-import Sidebar from "./app/components/pages/Sidebar";
-import Footer from "./app/components/pages/Footer";
-import AboutMe from "./app/components/pages/AboutMe";
-import Projects from "./app/components/pages/Projects";
-import HonorsAwards from "./app/components/pages/HonorsAwards";
-import Article from "./app/components/pages/Article";
-import ProblemSolving from "./app/components/pages/ProblemSolving";
+import Sidebar from "./pages/Sidebar";
+import Footer from "./pages/Footer";
+import AboutMe from "./pages/AboutMe";
+import Projects from "./pages/Projects";
+import HonorsAwards from "./pages/HonorsAwards";
+import Article from "./pages/Article";
+import ProblemSolving from "./pages/ProblemSolving";
 
 type Section = "about" | "projects" | "honors" | "article" | "problemSolving";
 
@@ -69,6 +69,13 @@ export default function App() {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [activeSection]);
 
   const handleDownloadResume = () => {
     const url = "https://drive.google.com/file/d/12NrKCTrThRDmJ47e97mH9KIG1W1xRVo_/view?usp=sharing";

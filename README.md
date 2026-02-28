@@ -1,4 +1,4 @@
-# rifatbroh Personal Portfolio for self
+# rifatbroh Personal Portfolio
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/234d6593-ba69-4530-a082-9f90d2a7686f/deploy-status)](https://app.netlify.com/projects/rifatbroh-me/deploys)
 
@@ -6,7 +6,7 @@ A modern, responsive personal portfolio built with React and Vite to showcase pr
 
 ---
 
-## 🔍 Overview
+## Overview
 
 This repository contains the source for a personal portfolio website. It is designed to be easy to customize and deploy, with a focus on performance, accessibility, and clean design.
 
@@ -14,48 +14,68 @@ Replace the placeholder content (name, bio, project links, and images) with your
 
 ---
 
-## 🚀 Features
+## Features
 
 - Clean, responsive UI for desktop and mobile
 - Modular React components and accessible patterns
-- Tailwind CSS integration (if present) for fast styling
+- Tailwind CSS integration for fast styling
 - Simple build and deployment with Vite
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - React
 - Vite
-- Tailwind CSS / Custom CSS (depending on the project)
+- Tailwind CSS
 - ESLint for code quality
+- Framer Motion for animations
+- Lucide React for icons
 
 ---
 
-## 📁 Project Structure (high level)
+## Project Structure
 
-- `index.html` — App entry point
-- `src/` — Source files
-  - `main.jsx` / `main.tsx` — App bootstrap
-  - `App.tsx` — Top-level application component
-  - `app/components/` — Reusable UI and page components
-  - `assets/` — Images and static assets
-  - `types/` — Type definitions (if using TypeScript)
+```
+src/
+├── assets/
+│   └── images/           # Static images
+├── components/
+│   ├── ui/               # Base UI components (Button, etc.)
+│, Input, Dialog   ├── HeroSection.tsx   # Introduction section
+│   ├── SkillList.tsx    # Skills display
+│   ├── ProjectCard.tsx  # Project card component
+│   ├── AwardCard.tsx    # Award card component
+│   ├── ArticleCard.tsx  # Blog article card
+│   └── PlatformCard.tsx # Problem solving platform
+├── pages/
+│   ├── AboutMe.tsx       # About page
+│   ├── Projects.tsx      # Projects page
+│   ├── HonorsAwards.tsx  # Honors & Awards page
+│   ├── Article.tsx      # Technical Writing page
+│   ├── ProblemSolving.tsx # Problem Solving page
+│   ├── Sidebar.tsx       # Navigation sidebar
+│   └── Footer.tsx        # Footer component
+├── hooks/                # Custom React hooks
+├── lib/                  # Utilities and helpers
+├── types/                # TypeScript type definitions
+├── App.tsx               # Main application component
+├── main.jsx              # App entry point
+└── index.css             # Global styles
+```
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ and npm or yarn
+- Node.js 18+ and npm
 
 ### Install
 
 ```bash
 npm install
-# or
-# yarn
 ```
 
 ### Development
@@ -64,7 +84,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173 (or the port shown in the terminal) to view the site locally.
+Open http://localhost:5173 to view the site locally.
 
 ### Build
 
@@ -80,49 +100,27 @@ npm run preview
 
 ---
 
-## 📦 Deployment
+## Deployment
 
 This site can be deployed to platforms like Vercel, Netlify, or GitHub Pages. The `build` step produces optimized static assets in the `dist/` directory.
 
 ---
 
-## ✍️ Customization Tips
+## Customization
 
-- Update your name, bio, and contact links in `src/` components or content files
-- Replace placeholder project links and screenshots with real projects and images
-- Add analytics, meta tags, and SEO optimizations as needed
-
----
-
-## 🤝 Contributing
-
-This repository is a personal portfolio template — contributions are welcome but optional. If you accept contributions, add a short `CONTRIBUTING.md` and guidelines.
+- Update your name, bio, and contact links in `src/pages/` components
+- Replace placeholder images in `src/assets/images/`
+- Add new components in `src/components/` for reusability
+- Modify data in page components to customize content
 
 ---
 
-## ⚖️ License
+## License
 
-Use this README to describe the license for your portfolio (e.g., MIT) or leave it as personal work.
-
----
-
-## 📬 Contact
-
-Replace this with your preferred contact method (email, LinkedIn, Twitter, etc.).
+MIT License
 
 ---
 
-*This README is tailored for a personal portfolio built with React + Vite. Replace placeholders with your details and remove sections you do not need.*
+## Contact
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+For any inquiries, reach out via email or social media links in the portfolio.
