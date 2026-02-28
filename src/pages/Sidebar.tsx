@@ -278,38 +278,6 @@ export default function Sidebar({
                 </button>
               </nav>
 
-              {/* Buttons in drawer - Mobile */}
-              <div className="flex gap-2 mt-6">
-                <button
-                  onClick={() => {
-                    onResumeDownload();
-                    setIsDrawerOpen(false);
-                  }}
-                  className="flex-1 flex items-center justify-center gap-2 border border-gray-200 bg-white text-gray-700 rounded-xl px-3 py-2.5 text-sm font-bold shadow-sm hover:border-teal-500 hover:text-black transition-all duration-200"
-                >
-                  <svg 
-                    className="w-4 h-4" 
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Resume
-                </button>
-                
-                <button
-                  onClick={() => {
-                    onContactClick();
-                    setIsDrawerOpen(false);
-                  }}
-                  className="flex-1 flex items-center justify-center gap-2 bg-black text-white rounded-xl px-3 py-2.5 text-sm font-bold shadow-lg hover:bg-zinc-800 transition-all duration-200"
-                >
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
-                  </span>
-                  Contact
-                </button>
-              </div>
             </div>
           </div>
         </>
