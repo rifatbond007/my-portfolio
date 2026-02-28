@@ -39,42 +39,42 @@ const ARTICLES: BlogPost[] = [
 export default function Article() {
   return (
     <section className="py-2">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 md:mb-8">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Technical Writing</h2>
-          <p className="text-gray-500 mt-1">Sharing insights on distributed systems and engineering culture.</p>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight">Technical Writing</h2>
+          <p className="text-gray-500 mt-1 text-sm md:text-base">Sharing insights on distributed systems and engineering culture.</p>
         </div>
-        <BookOpen className="text-gray-300" size={32} />
+        <BookOpen className="text-gray-300 hidden sm:block" size={32} />
       </div>
 
-      <div className="grid gap-6">
-        {ARTICLES.map((article, index) => (
+      <div className="grid gap-4 md:gap-6">
+        {ARTICLES.map((article, idx) => (
           <a
-            key={index}
+            key={idx}
             href={article.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group block p-6 bg-white border border-gray-100 rounded-2xl transition-all duration-300 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-500/5"
+            className="group block p-4 md:p-6 bg-white border border-gray-100 rounded-2xl transition-all duration-300 hover:border-teal-200 hover:shadow-lg hover:shadow-teal-500/5"
           >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
               <div className="flex-1">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-2 md:mb-3">
                   <span className="px-2 py-0.5 rounded bg-teal-50 text-teal-600 text-[10px] font-bold uppercase tracking-widest">
                     {article.category}
                   </span>
                   <span className="text-gray-400 text-xs flex items-center gap-1">
                     <Newspaper size={12} /> {article.platform}
                   </span>
-                  <span className="text-gray-300 text-xs">•</span>
+                  <span className="text-gray-300 text-xs hidden sm:inline">•</span>
                   <span className="text-gray-400 text-xs">{article.readTime}</span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors flex items-center gap-2">
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors flex items-center gap-2">
                   {article.title}
                   <ArrowUpRight size={18} className="opacity-0 group-hover:opacity-100 transition-all translate-y-1 group-hover:translate-y-0" />
                 </h3>
                 
-                <p className="mt-2 text-gray-600 text-sm leading-relaxed max-w-3xl">
+                <p className="mt-2 text-gray-600 text-sm leading-relaxed">
                   {article.description}
                 </p>
               </div>
@@ -89,7 +89,7 @@ export default function Article() {
         ))}
       </div>
 
-      <div className="mt-10 text-center">
+      <div className="mt-8 md:mt-10 text-center">
         <button className="text-sm font-bold text-gray-500 hover:text-teal-600 transition-colors border-b-2 border-transparent hover:border-teal-600 pb-1">
           View all publications on Medium →
         </button>

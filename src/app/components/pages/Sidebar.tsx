@@ -1,3 +1,5 @@
+import { MoreVertical } from "lucide-react";
+
 const profilePic = new URL("../../../assets/profile.png", import.meta.url).href;
 const coverPic = new URL("../../../assets/cover.png", import.meta.url).href;
 const rifat = new URL("../../../assets/profile.png", import.meta.url).href;
@@ -18,7 +20,14 @@ export default function Sidebar({
   onResumeDownload,
 }: SidebarProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full max-w-[360px] mx-auto md:mx-0 md:max-w-none">
+      {/* Mobile Menu Button */}
+      <div className="md:hidden flex justify-end">
+        <button className="p-2 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
+          <MoreVertical className="w-6 h-6" />
+        </button>
+      </div>
+
       {/* Profile Card */}
       <div className="bg-gray-100 rounded-2xl overflow-hidden">
         {/* Cover Photo */}

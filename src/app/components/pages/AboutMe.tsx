@@ -1,14 +1,14 @@
 export default function AboutMe() {
   return (
-    <div>
-      <h1 className="text-4xl mb-4">
+    <div className="space-y-6">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl">
         Hello! I'm Rifat Hossain
       </h1>
-      <p className="text-gray-600 mb-6">
+      <p className="text-gray-600 text-sm md:text-base">
         Software Engineer specializing in Backend Systems.
       </p>
 
-      <div className="space-y-4 text-gray-700 mb-12">
+      <div className="space-y-4 text-gray-700 text-sm md:text-base">
         <p>
           I'm a{" "}
           <span className="font-semibold">
@@ -25,54 +25,54 @@ export default function AboutMe() {
       </div>
 
       {/* Skills Section */}
-      <div className="border-t border-gray-300 pt-8">
-        <h2 className="text-3xl mb-6">Skills</h2>
-        <div className="space-y-4">
-          <div className="grid grid-cols-[150px_1fr] gap-4">
-            <div className="font-semibold">Programming</div>
-            <div className="text-gray-700">
+      <div className="border-t border-gray-300 pt-6 md:pt-8">
+        <h2 className="text-xl md:text-2xl lg:text-3xl mb-4 md:mb-6">Skills</h2>
+        <div className="space-y-3 md:space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-2 md:gap-4">
+            <div className="font-semibold text-sm md:text-base">Programming</div>
+            <div className="text-gray-700 text-sm md:text-base">
               Nodejs, DotNet Standard, Python, C/C++, SQL
             </div>
           </div>
-          <div className="grid grid-cols-[150px_1fr] gap-4">
-            <div className="font-semibold">Server</div>
-            <div className="text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-2 md:gap-4">
+            <div className="font-semibold text-sm md:text-base">Server</div>
+            <div className="text-gray-700 text-sm md:text-base">
               Express.js, Flask, Elastic Stack, RabbitMQ, BullMQ, Docker, Kubernetes
             </div>
           </div>
-          <div className="grid grid-cols-[150px_1fr] gap-4">
-            <div className="font-semibold">Database</div>
-            <div className="text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-2 md:gap-4">
+            <div className="font-semibold text-sm md:text-base">Database</div>
+            <div className="text-gray-700 text-sm md:text-base">
               PostgreSQL, MySQL, NoSQL, Redis, KeyDB, Dragonfly, Firebase, MongoDB
             </div>
           </div>
-          <div className="grid grid-cols-[150px_1fr] gap-4">
-            <div className="font-semibold">Telemetry</div>
-            <div className="text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-2 md:gap-4">
+            <div className="font-semibold text-sm md:text-base">Telemetry</div>
+            <div className="text-gray-700 text-sm md:text-base">
               Open Telemetry, Prometheus, Grafana, Loki, Vector
             </div>
           </div>
-          <div className="grid grid-cols-[150px_1fr] gap-4">
-            <div className="font-semibold">Cloud</div>
-            <div className="text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-2 md:gap-4">
+            <div className="font-semibold text-sm md:text-base">Cloud</div>
+            <div className="text-gray-700 text-sm md:text-base">
               CPanel, CloudPanel, DigitalOcean, Bunny, Cloudflare
             </div>
           </div>
-          <div className="grid grid-cols-[150px_1fr] gap-4">
-            <div className="font-semibold">CI/CD</div>
-            <div className="text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-2 md:gap-4">
+            <div className="font-semibold text-sm md:text-base">CI/CD</div>
+            <div className="text-gray-700 text-sm md:text-base">
               GitHub Actions, Jest, Supertest, Selenium, Cypress
             </div>
           </div>
-          <div className="grid grid-cols-[150px_1fr] gap-4">
-            <div className="font-semibold">Web/Media</div>
-            <div className="text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-2 md:gap-4">
+            <div className="font-semibold text-sm md:text-base">Web/Media</div>
+            <div className="text-gray-700 text-sm md:text-base">
               Unity3D, HTML/CSS, TailwindCSS, ReactJS, Photoshop, Wondershare Filmora
             </div>
           </div>
-          <div className="grid grid-cols-[150px_1fr] gap-4">
-            <div className="font-semibold">Others</div>
-            <div className="text-gray-700">
+          <div className="grid grid-cols-1 sm:grid-cols-[120px_1fr] md:grid-cols-[150px_1fr] gap-2 md:gap-4">
+            <div className="font-semibold text-sm md:text-base">Others</div>
+            <div className="text-gray-700 text-sm md:text-base">
               Prompt Engineering, Product Management
             </div>
           </div>
