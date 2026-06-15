@@ -1,11 +1,10 @@
-import { Github, Linkedin, Mail, Facebook, Instagram } from "lucide-react";
+import { Github, Linkedin, Facebook, Instagram } from "lucide-react";
 
 const socialLinks = [
-  { href: "#", Icon: Github, label: "GitHub" },
-  { href: "#", Icon: Linkedin, label: "LinkedIn" },
-  { href: "#", Icon: Mail, label: "Email" },
-  { href: "#", Icon: Facebook, label: "Facebook" },
-  { href: "#", Icon: Instagram, label: "Instagram" },
+  { href: "https://github.com/rifatbond007", Icon: Github, label: "GitHub" },
+  { href: "https://www.linkedin.com/in/rifat-hossain-6b21741b3/", Icon: Linkedin, label: "LinkedIn" },
+  { href: "https://www.facebook.com/mohammad.rifat.800703", Icon: Facebook, label: "Facebook" },
+  { href: "https://www.instagram.com/rifatbroh_39/", Icon: Instagram, label: "Instagram" },
 ] as const;
 
 export default function Footer() {
@@ -17,6 +16,8 @@ export default function Footer() {
             <a
               key={label}
               href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-gray-700 hover:text-black transition-colors text-sm md:text-base"
             >
               <Icon className="w-5 h-5" />
@@ -25,7 +26,7 @@ export default function Footer() {
           ))}
         </div>
         <div>
-          <p className="text-gray-600 text-sm">Made by rifatbroh | 2025</p>
+          <p className="text-gray-600 text-sm">Made by rifatbroh | {new Date().getFullYear()}</p>
         </div>
       </div>
     </div>
