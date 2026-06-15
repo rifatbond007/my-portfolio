@@ -14,9 +14,9 @@ const skillCategories = [
 
 const description = [
   <>
-    I'm <span className="font-semibold">Rifat Hossain (rifatbroh)</span>, a <span className="font-semibold">Software Engineer</span> from Cumilla, Bangladesh with a proven track record as a <span className="font-semibold">4x hackathon winner</span>. My journey began in Game Development, and now I specialize in Backend and Distributed Systems engineering.
+    I'm a <span className="font-semibold">Software Engineer</span> with experience across various technologies. My journey began in Game Development, and now I'm exploring the fascinating world of Backend and Distributed Systems.
   </>,
-  "I primarily work with JavaScript/TypeScript and Node.js for backend services, while maintaining strong proficiency in C/C++ and Python. My expertise spans database systems (PostgreSQL, Redis, MongoDB), containerization (Docker, Kubernetes), and observability (OpenTelemetry, Prometheus, Grafana). Outside of engineering, I enjoy gaming, reading, and playing acoustic guitar.",
+  "Currently, I primarily work with JavaScript/TypeScript, while maintaining proficiency in C/C++ and Python for academic pursuits. When not coding, you'll find me gaming with friends, reading books, or playing acoustic guitar.",
 ];
 
 export default function AboutMe() {

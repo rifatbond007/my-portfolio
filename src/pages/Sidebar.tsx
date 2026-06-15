@@ -75,7 +75,7 @@ export default function Sidebar({
           </div>
 
           <div className="text-center">
-            <p className="font-semibold text-2xl">rifat hossain</p>
+            <h3 className="font-semibold text-2xl">rifat hossain</h3>
             <p className="text-sm text-gray-600">
               <span className="font-semibold">4X</span> Hackathon Winner | Software Engineer
             </p>
