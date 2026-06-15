@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+import { SEO } from "./components/SEO";
 import { TerminalLoader } from "./components/TerminalLoader";
 import { ContactDialog } from "./components/ContactDialog";
 import Sidebar from "./pages/Sidebar";
@@ -53,6 +54,7 @@ export default function App() {
 
   return (
     <>
+      <SEO />
       {/* Conditional Loader */}
       {isLoading && <TerminalLoader />}
 

@@ -57,7 +57,7 @@ export default function Sidebar({
         <div className="relative h-24 bg-linear-to-r from-teal-400 to-teal-500">
           <img
             src={coverPic}
-            alt="Cover"
+            alt="Rifat Hossain rifatbroh — Cover photo"
             className="w-full h-full object-cover"
           />
         </div>
@@ -68,14 +68,14 @@ export default function Sidebar({
             <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white shadow-lg flex items-center justify-center">
               <img
                 src={profilePic}
-                alt="Profile"
+                alt="Rifat Hossain rifatbroh — Software Engineer and 4x Hackathon Winner"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
 
           <div className="text-center">
-            <h3 className="font-semibold text-2xl">rifat hossain</h3>
+            <p className="font-semibold text-2xl">rifat hossain</p>
             <p className="text-sm text-gray-600">
               <span className="font-semibold">4X</span> Hackathon Winner | Software Engineer
             </p>
