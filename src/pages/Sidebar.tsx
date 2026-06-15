@@ -133,14 +133,23 @@ export default function Sidebar({
     {/* Vertical Timeline Thread Line */}
     <div className="absolute left-1.75 top-2 bottom-2 w-0.5 bg-gray-300"></div>
 
-    {/* Senior Role (Highlighted) */}
+    {/* Gao Tek Inc (Active) */}
     <div className="relative pl-8">
-      {/* Active Dot */}
       <div className="absolute left-0 top-1 w-4 h-4 rounded-full border-4 border-gray-100 bg-teal-500 z-10 shadow-sm"></div>
       <div>
-        <h4 className="font-bold text-sm text-gray-900 leading-tight">Software Engineer</h4>
-        <p className="text-xs font-semibold text-teal-600 mt-0.5">BCC Internship</p>
-        <p className="text-[10px] font-bold text-gray-400 mt-1 tracking-tighter uppercase">2025 — Present</p>
+        <h4 className="font-bold text-sm text-gray-900 leading-tight">Software Engineer (HR)</h4>
+        <p className="text-xs font-semibold text-teal-600 mt-0.5">Gao Tek Inc</p>
+        <p className="text-[10px] font-bold text-gray-400 mt-1 tracking-tighter uppercase">15 Jun 2026 — Present</p>
+      </div>
+    </div>
+
+    {/* BCC Internship */}
+    <div className="relative pl-8">
+      <div className="absolute left-0 top-1 w-4 h-4 rounded-full border-4 border-gray-100 bg-gray-400 z-10"></div>
+      <div>
+        <h4 className="font-bold text-sm text-gray-800 leading-tight">Software Engineer</h4>
+        <p className="text-xs font-semibold text-gray-600 mt-0.5">BCC Internship</p>
+        <p className="text-[10px] font-bold text-gray-400 mt-1 tracking-tighter uppercase">2025 — 2026</p>
       </div>
     </div>
 
