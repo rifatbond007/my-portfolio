@@ -27,7 +27,6 @@ No test or typecheck commands exist. `tsc` is not installed; Vite's esbuild hand
 ## Notable
 
 - **Base path**: `/my-portfolio/` (`vite.config.js`). Used for production asset paths.
-- **Deploy**: Netlify (SPA). `dist/_redirects` serves `/* → /index.html 200`.
 - **Loader**: 3-second terminal-style loading animation on initial mount (hardcoded in `App.tsx`).
 - **Contact form**: Demo-only — Radix Dialog, no backend, shows `alert()` on submit.
 - **External links**: Resume download uses `target="_blank"` with `noopener noreferrer`.
