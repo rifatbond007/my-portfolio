@@ -40,8 +40,8 @@ export default function Article() {
       </div>
 
       <div className="grid gap-4 md:gap-6">
-        {ARTICLES.map((article, idx) => (
-          <ArticleCard key={idx} article={article} />
+        {ARTICLES.map((article) => (
+          <ArticleCard key={article.title} article={article} />
         ))}
       </div>
 

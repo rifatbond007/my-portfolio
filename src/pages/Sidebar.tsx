@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { MoreVertical, X } from "lucide-react";
 
-const profilePic = new URL("../assets/images/profile.png", import.meta.url).href;
+const NAV_ITEMS: { id: Section; label: string }[] = [
+  { id: "about", label: "About Me" },
+  { id: "projects", label: "Projects" },
+  { id: "honors", label: "Awards" },
+  { id: "problemSolving", label: "Competitive" },
+  { id: "article", label: "Article" },
+];
+
 const coverPic = new URL("../assets/images/cover.png", import.meta.url).href;
-const rifat = new URL("../assets/images/profile.png", import.meta.url).href;
+const profilePic = new URL("../assets/images/profile.png", import.meta.url).href;
 
 type Section = "about" | "projects" | "honors" | "article" | "problemSolving";
 
@@ -55,7 +62,7 @@ export default function Sidebar({
           <div className="relative -mt-16 mx-auto w-32 h-32 mb-6">
             <div className="w-32 h-32 rounded-full border-4 border-white overflow-hidden bg-white shadow-lg flex items-center justify-center">
               <img
-                src={rifat}
+                src={profilePic}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
@@ -102,47 +109,17 @@ export default function Sidebar({
       {/* Navigation Menu - Desktop only */}
       <div className="hidden md:block bg-gray-100 rounded-2xl p-6">
         <nav className="space-y-2">
-          <button
-            onClick={() => onSectionChange("about")}
-            className={`w-full text-left text-lg hover:font-semibold transition-all ${
-              activeSection === "about" ? "font-semibold" : ""
-            }`}
-          >
-            About Me
-          </button>
-          <button
-            onClick={() => onSectionChange("projects")}
-            className={`w-full text-left text-lg hover:font-semibold transition-all ${
-              activeSection === "projects" ? "font-semibold" : ""
-            }`}
-          >
-            Projects
-          </button>
-          <button
-            onClick={() => onSectionChange("honors")}
-            className={`w-full text-left text-lg hover:font-semibold transition-all ${
-              activeSection === "honors" ? "font-semibold" : ""
-            }`}
-          >
-            Awards
-          </button>
+          {NAV_ITEMS.map((item) => (
             <button
-            onClick={() => onSectionChange("problemSolving")}
-            className={`w-full text-left text-lg hover:font-semibold transition-all ${
-              activeSection === "problemSolving" ? "font-semibold" : ""
-            }`}
-          >
-            Competitive
-          </button>
-
-          <button
-            onClick={() => onSectionChange("article")}
-            className={`w-full text-left text-lg hover:font-semibold transition-all ${
-              activeSection === "article" ? "font-semibold" : ""
-            }`}
-          >
-            Article
-          </button>
+              key={item.id}
+              onClick={() => onSectionChange(item.id)}
+              className={`w-full text-left text-lg hover:font-semibold transition-all ${
+                activeSection === item.id ? "font-semibold" : ""
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
         </nav>
       </div>
 
@@ -236,48 +213,18 @@ export default function Sidebar({
             
             <div className="px-4 pb-6">
               <nav className="space-y-2">
-                <button
-                  onClick={() => handleNavClick("about")}
-                  className={`w-full text-left text-lg hover:font-semibold transition-all py-2 ${
-                    activeSection === "about" ? "font-semibold" : ""
-                  }`}
-                >
-                  About Me
-                </button>
-                <button
-                  onClick={() => handleNavClick("projects")}
-                  className={`w-full text-left text-lg hover:font-semibold transition-all py-2 ${
-                    activeSection === "projects" ? "font-semibold" : ""
-                  }`}
-                >
-                  Projects
-                </button>
-                <button
-                  onClick={() => handleNavClick("honors")}
-                  className={`w-full text-left text-lg hover:font-semibold transition-all py-2 ${
-                    activeSection === "honors" ? "font-semibold" : ""
-                  }`}
-                >
-                  Awards
-                </button>
-                <button
-                  onClick={() => handleNavClick("problemSolving")}
-                  className={`w-full text-left text-lg hover:font-semibold transition-all py-2 ${
-                    activeSection === "problemSolving" ? "font-semibold" : ""
-                  }`}
-                >
-                  Competitive
-                </button>
-                <button
-                  onClick={() => handleNavClick("article")}
-                  className={`w-full text-left text-lg hover:font-semibold transition-all py-2 ${
-                    activeSection === "article" ? "font-semibold" : ""
-                  }`}
-                >
-                  Article
-                </button>
+                {NAV_ITEMS.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`w-full text-left text-lg hover:font-semibold transition-all py-2 ${
+                      activeSection === item.id ? "font-semibold" : ""
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
               </nav>
-
             </div>
           </div>
         </>

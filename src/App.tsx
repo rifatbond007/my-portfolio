@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "./components/ui/dialog";
-import { Input } from "./components/ui/input";
-import { Textarea } from "./components/ui/textarea";
+import { useState, useEffect } from "react";
 
-// Import page components
+import { TerminalLoader } from "./components/TerminalLoader";
+import { ContactDialog } from "./components/ContactDialog";
 import Sidebar from "./pages/Sidebar";
 import Footer from "./pages/Footer";
 import AboutMe from "./pages/AboutMe";
@@ -19,43 +11,6 @@ import Article from "./pages/Article";
 import ProblemSolving from "./pages/ProblemSolving";
 
 type Section = "about" | "projects" | "honors" | "article" | "problemSolving";
-
-// --- Terminal Loader Component ---
-const TerminalLoader = () => {
-  const [line, setLine] = useState("");
-  const fullText = "> Initializing portfolio_v2.0... [OK]";
-
-  useEffect(() => {
-    let i = 0;
-    const interval = setInterval(() => {
-      setLine(fullText.slice(0, i));
-      i++;
-      if (i > fullText.length) clearInterval(interval);
-    }, 30);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="fixed inset-0 z-100 flex flex-col items-center justify-center bg-[#0a0a0a] font-mono text-sm md:text-base">
-      <div className="w-full max-w-md px-6">
-        <div className="flex items-center gap-2 mb-4">
-          <div className="w-3 h-3 rounded-full bg-red-500" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500" />
-          <div className="w-3 h-3 rounded-full bg-green-500" />
-        </div>
-        <div className="space-y-2 text-gray-300">
-          <p className="text-blue-400">system_user@rifatbond1:~$ <span className="text-white">{line}</span></p>
-          {line.length >= fullText.length && (
-            <>
-              <p className="animate-pulse text-green-500">√ Build successful</p>
-              <p className="text-gray-500 text-xs mt-4">Starting development server...</p>
-            </>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // --- Main App Component ---
 export default function App() {
@@ -78,18 +33,11 @@ export default function App() {
   }, [activeSection]);
 
   const handleDownloadResume = () => {
-    const url = "https://drive.google.com/file/d/12NrKCTrThRDmJ47e97mH9KIG1W1xRVo_/view?usp=sharing";
-    if (typeof window !== "undefined") {
-      window.open(url, "_blank", "noopener,noreferrer");
-      return;
-    }
-    const link = document.createElement("a");
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+    window.open(
+      "https://drive.google.com/file/d/12NrKCTrThRDmJ47e97mH9KIG1W1xRVo_/view?usp=sharing",
+      "_blank",
+      "noopener,noreferrer",
+    );
   };
 
   const renderPage = () => {
@@ -126,56 +74,7 @@ export default function App() {
           <Footer />
         </div>
 
-        <Dialog open={isContactOpen} onOpenChange={setIsContactOpen}>
-          <DialogContent className="bg-white">
-            <DialogHeader>
-              <DialogTitle>Contact Me</DialogTitle>
-              <DialogDescription>
-                Send me a message and I'll get back to you as soon as possible.
-              </DialogDescription>
-            </DialogHeader>
-            <form
-              className="space-y-4"
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert("Message sent! (This is a demo)");
-                setIsContactOpen(false);
-              }}
-            >
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <Input placeholder="Your name" required />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <Input type="email" placeholder="your.email@example.com" required />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Subject</label>
-                <Input placeholder="What's this about?" required />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
-                <Textarea placeholder="Your message..." rows={5} required />
-              </div>
-              <div className="flex gap-3">
-                <button
-                  type="button"
-                  onClick={() => setIsContactOpen(false)}
-                  className="flex-1 border border-black rounded-lg px-4 py-2 hover:bg-gray-100 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="flex-1 bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-800 transition-colors"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </DialogContent>
-        </Dialog>
+        <ContactDialog open={isContactOpen} onOpenChange={setIsContactOpen} />
       </div>
     </>
   );
