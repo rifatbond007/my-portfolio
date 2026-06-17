@@ -31,22 +31,22 @@ const ARTICLES = [
 export default function Article() {
   return (
     <section className="py-2">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 md:mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight">Technical Writing</h2>
-          <p className="text-gray-500 mt-1 text-sm md:text-base">Sharing insights on distributed systems and engineering culture.</p>
+          <h2 className="text-4xl font-bold uppercase tracking-wide"><span className="text-neon">//</span> Technical Writing</h2>
+          <p className="mt-1 text-sm">Sharing insights on distributed systems and engineering culture.</p>
         </div>
-        <BookOpen className="text-gray-300 hidden sm:block" size={32} />
+        <div className="border-2 border-black p-2"><BookOpen size={24} /></div>
       </div>
 
-      <div className="grid gap-4 md:gap-6">
+      <div className="grid gap-6">
         {ARTICLES.map((article) => (
           <ArticleCard key={article.title} article={article} />
         ))}
       </div>
 
-      <div className="mt-8 md:mt-10 text-center">
-        <button className="text-sm font-bold text-gray-500 hover:text-teal-600 transition-colors border-b-2 border-transparent hover:border-teal-600 pb-1">
+      <div className="mt-10 text-center">
+        <button className="text-sm font-bold border-2 border-black px-4 py-2 hover:bg-neon hover:text-black">
           View all publications on Medium →
         </button>
       </div>

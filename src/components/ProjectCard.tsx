@@ -6,12 +6,12 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, technologies }: ProjectCardProps) {
   return (
-    <div className="border border-gray-300 rounded-lg p-4 md:p-6">
-      <h3 className="font-semibold text-lg md:text-xl mb-2">{title}</h3>
-      <p className="text-gray-700 mb-3 text-sm md:text-base">{description}</p>
+    <div className="border-2 border-black p-6 hover:border-neon">
+      <h3 className="font-bold text-xl uppercase mb-2">{title}</h3>
+      <p className="mb-4 text-sm">{description}</p>
       <div className="flex flex-wrap gap-2">
-        {technologies.map((tech) => (
-          <span key={tech} className="px-3 py-1 bg-black text-white rounded text-xs md:text-sm">
+        {technologies.map((tech, i) => (
+          <span key={tech} className={`px-3 py-1 border-2 border-black text-sm font-bold ${i === 0 ? 'bg-neon text-black' : 'bg-black text-white'}`}>
             {tech}
           </span>
         ))}

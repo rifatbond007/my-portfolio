@@ -9,9 +9,9 @@ const awards = [
 
 export default function HonorsAwards() {
   return (
-    <div className="space-y-4 md:space-y-6">
-      <h2 className="text-xl md:text-2xl lg:text-3xl">Honors & Awards</h2>
-      <div className="space-y-4 md:space-y-6">
+    <div className="space-y-6">
+      <h2 className="text-4xl uppercase font-bold tracking-wide"><span className="text-neon">//</span> Honors & Awards</h2>
+      <div className="space-y-6">
         {awards.map((award) => (
           <AwardCard
             key={`${award.title}-${award.event}`}

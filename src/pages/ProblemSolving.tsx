@@ -8,10 +8,10 @@ const platforms = [
 
 export default function ProblemSolving() {
   return (
-    <div className="max-w-4xl mx-auto py-4 md:py-8">
-      <h2 className="text-xl md:text-2xl lg:text-3xl mb-6 md:mb-8">Problem Solving</h2>
+    <div className="max-w-4xl mx-auto py-8">
+      <h2 className="text-4xl uppercase font-bold tracking-wide mb-8"><span className="text-neon">//</span> Problem Solving</h2>
       
-      <div className="space-y-4 md:space-y-6">
+      <div className="space-y-6">
         {platforms.map((p) => (
           <PlatformCard
             key={p.platform}
@@ -23,9 +23,9 @@ export default function ProblemSolving() {
         ))}
       </div>
 
-      <div className="mt-6 md:mt-8 flex flex-wrap gap-3 md:gap-6 text-xs font-medium text-gray-500 uppercase tracking-wider">
-        <span>Top 30% Active</span>
-        <span>C++ / Python / DSA / Algo</span>
+      <div className="mt-8 flex flex-wrap gap-4 text-xs font-bold uppercase">
+        <span className="border-2 border-black px-3 py-1 hover:border-neon">Top 30% Active</span>
+        <span className="border-2 border-black px-3 py-1 hover:border-neon">C++ / Python / DSA / Algo</span>
       </div>
     </div>
   );

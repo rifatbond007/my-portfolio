@@ -9,16 +9,16 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-200">
+    <div className="mt-12 pt-8 border-t-4 border-black">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {socialLinks.map(({ href, Icon, label }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-700 hover:text-black transition-colors text-sm md:text-base"
+              className="flex items-center gap-2 text-sm font-bold hover:text-neon"
             >
               <Icon className="w-5 h-5" />
               <span className="hidden sm:inline">{label}</span>
@@ -26,7 +26,7 @@ export default function Footer() {
           ))}
         </div>
         <div>
-          <p className="text-gray-600 text-sm">Made by rifatbroh | {new Date().getFullYear()}</p>
+          <p className="text-sm font-bold">Made by rifatbroh | {new Date().getFullYear()}</p>
         </div>
       </div>
     </div>

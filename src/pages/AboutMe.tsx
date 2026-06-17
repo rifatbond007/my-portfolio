@@ -14,7 +14,7 @@ const skillCategories = [
 
 const description = [
   <>
-    I'm a <span className="font-semibold">Software Engineer</span> with experience across various technologies. My journey began in Game Development, and now I'm exploring the fascinating world of Backend and Distributed Systems.
+    I'm a <span className="font-bold text-neon">Software Engineer</span> with experience across various technologies. My journey began in Game Development, and now I'm exploring the fascinating world of Backend and Distributed Systems.
   </>,
   "Currently, I primarily work with JavaScript/TypeScript, while maintaining proficiency in C/C++ and Python for academic pursuits. When not coding, you'll find me gaming with friends, reading books, or playing acoustic guitar.",
 ];
