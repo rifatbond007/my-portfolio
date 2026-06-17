@@ -65,7 +65,7 @@ export default function Sidebar({
         {/* Profile Picture positioned over cover */}
         <div className="relative px-6 pb-6">
           <div className="relative -mt-16 mx-auto w-32 h-32 mb-6">
-            <div className="w-32 h-32 border-4 border-black bg-white flex items-center justify-center">
+            <div className="w-32 h-32 rounded-full border-4 border-white bg-white flex items-center justify-center overflow-hidden">
               <img
                 src={profilePic}
                 alt="Rifat Hossain rifatbroh — Software Engineer and 4x Hackathon Winner"
