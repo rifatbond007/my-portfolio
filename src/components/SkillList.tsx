@@ -10,8 +10,8 @@ interface SkillListProps {
 
 export function SkillList({ title, skills }: SkillListProps) {
   return (
-    <div className="border-t-4 border-black pt-8">
-      <h2 className="text-4xl uppercase font-bold mb-6">{title}</h2>
+    <div className="border-t border-black/15 pt-6 mt-8">
+      <h2 className="text-4xl uppercase font-bold mb-4">{title}</h2>
       <div className="space-y-4">
         {skills.map((skill) => (
           <div
