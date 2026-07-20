@@ -9,7 +9,6 @@ const GAO_TEK_START = new Date(2026, 5, 15);
 const NAV_ITEMS: { id: Section; label: string }[] = [
   { id: "about", label: "About Me" },
   { id: "projects", label: "Projects" },
-  { id: "honors", label: "Awards" },
   { id: "problemSolving", label: "Competitive" },
   { id: "article", label: "Article" },
 ];
@@ -17,7 +16,7 @@ const NAV_ITEMS: { id: Section; label: string }[] = [
 const coverPic = new URL("../assets/images/cover.png", import.meta.url).href;
 const profilePic = new URL("../assets/images/profile.png", import.meta.url).href;
 
-type Section = "about" | "projects" | "honors" | "article" | "problemSolving";
+type Section = "about" | "projects" | "article" | "problemSolving";
 
 interface SidebarProps {
   activeSection: Section;
@@ -58,7 +57,12 @@ export default function Sidebar({
           <img
             src={coverPic}
             alt="Rifat Hossain rifatbroh — Cover photo"
+            width="800"
+            height="192"
             className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
 
@@ -68,8 +72,12 @@ export default function Sidebar({
             <div className="w-32 h-32 rounded-full border-4 border-white bg-white flex items-center justify-center overflow-hidden">
               <img
                 src={profilePic}
-                alt="Rifat Hossain rifatbroh — Software Engineer and 4x Hackathon Winner"
+                alt="Rifat Hossain rifatbroh — Software Engineer and 5x Hackathon Winner"
+                width="128"
+                height="128"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -77,7 +85,7 @@ export default function Sidebar({
           <div className="text-center">
             <h3 className="font-bold text-2xl uppercase">rifat hossain</h3>
             <p className="text-sm font-bold">
-              4X Hackathon Winner | Software Engineer
+              5X Hackathon Winner | Software Engineer
             </p>
             <p className="text-sm">Cumilla, Bangladesh</p>
           </div>

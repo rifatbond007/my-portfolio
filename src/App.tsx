@@ -6,11 +6,10 @@ import Sidebar from "./pages/Sidebar";
 import Footer from "./pages/Footer";
 import AboutMe from "./pages/AboutMe";
 import Projects from "./pages/Projects";
-import HonorsAwards from "./pages/HonorsAwards";
 import Article from "./pages/Article";
 import ProblemSolving from "./pages/ProblemSolving";
 
-type Section = "about" | "projects" | "honors" | "article" | "problemSolving";
+type Section = "about" | "projects" | "article" | "problemSolving";
 
 // --- Main App Component ---
 export default function App() {
@@ -44,7 +43,6 @@ export default function App() {
     switch (activeSection) {
       case "about": return <AboutMe />;
       case "projects": return <Projects />;
-      case "honors": return <HonorsAwards />;
       case "article": return <Article />;
       case "problemSolving": return <ProblemSolving />;
       default: return <AboutMe />;
