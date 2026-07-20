@@ -9,7 +9,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <div className="mt-12 pt-8 border-t-4 border-black">
+    <div className="mt-12 pt-8 border-t-2 border-black">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
         <div className="flex flex-wrap justify-center gap-6">
           {socialLinks.map(({ href, Icon, label }) => (

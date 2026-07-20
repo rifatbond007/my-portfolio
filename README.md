@@ -1,124 +1,101 @@
-# rifatbroh Portfolio corner
+# rifatbroh — Portfolio Monorepo
 
-A modern, responsive personal portfolio built with React and Vite to showcase projects, skills, and contact information.
+Personal portfolio site (React + Vite) plus a Cloudflare Workers API for the contact form.
 
----
-
-## Overview
-
-This repository contains the source for a personal portfolio website. It is designed to be easy to customize and deploy, with a focus on performance, accessibility, and clean design.
-
-Replace the placeholder content (name, bio, project links, and images) with your own to make the site yours.
-
----
-
-## Features
-
-- Clean, responsive UI for desktop and mobile
-- Modular React components and accessible patterns
-- Tailwind CSS integration for fast styling
-- Simple build and deployment with Vite
-
----
-
-## Tech Stack
-
-- React
-- Vite
-- Tailwind CSS
-- ESLint for code quality
-- Framer Motion for animations
-- Lucide React for icons
-
----
-
-## Project Structure
+## Structure
 
 ```
-src/
-├── assets/
-│   └── images/           # Static images
-├── components/
-│   ├── ui/               # Base UI components (Button, etc.)
-│, Input, Dialog   ├── HeroSection.tsx   # Introduction section
-│   ├── SkillList.tsx    # Skills display
-│   ├── ProjectCard.tsx  # Project card component
-│   ├── AwardCard.tsx    # Award card component
-│   ├── ArticleCard.tsx  # Blog article card
-│   └── PlatformCard.tsx # Problem solving platform
-├── pages/
-│   ├── AboutMe.tsx       # About page
-│   ├── Projects.tsx      # Projects page
-│   ├── HonorsAwards.tsx  # Honors & Awards page
-│   ├── Article.tsx      # Technical Writing page
-│   ├── ProblemSolving.tsx # Problem Solving page
-│   ├── Sidebar.tsx       # Navigation sidebar
-│   └── Footer.tsx        # Footer component
-├── hooks/                # Custom React hooks
-├── lib/                  # Utilities and helpers
-├── types/                # TypeScript type definitions
-├── App.tsx               # Main application component
-├── main.jsx              # App entry point
-└── index.css             # Global styles
+apps/
+  web/        React + Vite frontend (deployed to GitHub Pages)
+  api/        Hono on Cloudflare Workers (contact form backend)
+packages/
+  shared/     Zod schemas + constants shared between web and api
 ```
 
----
+## Commands
 
-## Getting Started
+Run from the repo root:
 
-### Prerequisites
+| Command | What it does |
+| --- | --- |
+| `npm install` | Install all workspaces |
+| `npm run dev` | Run web (Vite) and api (Wrangler) in parallel |
+| `npm run build` | Build everything via Turborepo |
+| `npm run lint` | Lint web (ESLint flat config); api is a no-op stub |
+| `npm run typecheck` | Typecheck every workspace |
+| `npm run clean` | Remove `node_modules`, `.turbo`, `dist`, `.wrangler` |
 
-- Node.js 18+ and npm
+## Setup
 
-### Install
+### Local environment
 
-```bash
-npm install
-```
+All env vars live in **one file at the repo root**: `.env`.
 
-### Development
+1. `cp .env.example .env`
+2. Fill in values (see comments in `.env.example`).
+3. `npm run dev` (turbo fans out from the repo root, so Vite and Wrangler
+   both load the same `.env`).
 
-```bash
-npm run dev
-```
+### 1. Cloudflare account + Workers
 
-Open http://localhost:5173 to view the site locally.
+1. Sign up at <https://dash.cloudflare.com> (free tier works).
+2. Create an API token with `Workers Scripts:Edit` + `Workers KV Storage:Edit` permissions. Save as the `CLOUDFLARE_API_TOKEN` GitHub secret.
+3. Copy your Account ID from the Workers dashboard. Save as `CLOUDFLARE_ACCOUNT_ID`.
+4. Create a KV namespace for submissions:
+   ```
+   cd apps/api
+   npx wrangler kv namespace create SUBMISSIONS
+   ```
+   Paste the returned `id` into `apps/api/wrangler.toml`.
+5. Set the API secrets (these are NOT in `wrangler.toml`):
+   ```
+   cd apps/api
+   npx wrangler secret put RESEND_API_KEY
+   npx wrangler secret put TURNSTILE_SECRET_KEY
+   npx wrangler secret put CONTACT_TO_EMAIL       # abdullah.al.rifat2239@gmail.com
+   npx wrangler secret put CONTACT_FROM_EMAIL     # must be on a Resend-verified domain
+   ```
 
-### Build
+### 2. Resend
 
-```bash
-npm run build
-```
+1. Sign up at <https://resend.com> (free tier: 100 emails/day).
+2. Add and verify the sending domain you want in `CONTACT_FROM_EMAIL`.
+3. Create an API key. Use it for `RESEND_API_KEY`.
 
-### Preview production build
+### 3. Cloudflare Turnstile
 
-```bash
-npm run preview
-```
+1. Visit <https://dash.cloudflare.com> → Turnstile → Add widget.
+2. Copy the **Site Key** (public). Save in `apps/web/.env.local` as `VITE_TURNSTILE_SITE_KEY` AND as a GitHub repo variable.
+3. Copy the **Secret Key** (private). Use it for `TURNSTILE_SECRET_KEY` via `wrangler secret put`.
 
----
+### 4. Cal.com
 
-## Deployment
+Public event type already configured at `cal.com/rifatbroh` (30 min). No further setup needed.
 
-This site can be deployed to platforms like Vercel, Netlify, or GitHub Pages. The `build` step produces optimized static assets in the `dist/` directory.
+### 5. GitHub repo variables + secrets
 
----
+Repository → Settings → Secrets and variables → Actions:
 
-## Customization
+- **Variables**:
+  - `VITE_API_BASE_URL` — e.g. `https://portfolio-api.your-subdomain.workers.dev`
+  - `VITE_TURNSTILE_SITE_KEY` — Turnstile public site key
+- **Secrets**:
+  - `CLOUDFLARE_API_TOKEN`
+  - `CLOUDFLARE_ACCOUNT_ID`
 
-- Update your name, bio, and contact links in `src/pages/` components
-- Replace placeholder images in `src/assets/images/`
-- Add new components in `src/components/` for reusability
-- Modify data in page components to customize content
+## Deploys
 
----
+- Push to `main` → CI runs lint + typecheck + build.
+- `deploy-web.yml` builds and deploys the frontend to GitHub Pages when `apps/web/**` or `packages/shared/**` changes.
+- `deploy-api.yml` deploys the Worker to Cloudflare when `apps/api/**` or `packages/shared/**` changes.
+
+## Architecture notes
+
+- `packages/shared` exports a single Zod schema (`ContactSchema`) used by both the form (`apps/web`) and the API (`apps/api`) — validation is impossible to drift.
+- The frontend never sees the Turnstile secret or Resend key — only the Worker does.
+- KV stores submissions for 90 days with auto-purge via `expirationTtl`.
+- Rate limit is 5 submissions per IP per 10 minutes (KV-backed counter with TTL reset each write).
 
 ## License
 
-MIT License
-
----
-
-## Contact
-
-For any inquiries, reach out via email or social media links in the portfolio.
+MIT

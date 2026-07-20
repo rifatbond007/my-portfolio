@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
+
 interface HeroSectionProps {
   name: string;
   title: string;
-  description: string[];
+  description: ReactNode[];
 }
 
 export function HeroSection({ name, title, description }: HeroSectionProps) {

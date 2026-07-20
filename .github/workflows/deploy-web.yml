@@ -1,8 +1,15 @@
-name: Deploy to GitHub Pages
+name: Deploy Web (GitHub Pages)
 
 on:
   push:
     branches: [main]
+    paths:
+      - "apps/web/**"
+      - "packages/shared/**"
+      - "package.json"
+      - "package-lock.json"
+      - "turbo.json"
+      - ".github/workflows/deploy-web.yml"
 
 permissions:
   contents: read
@@ -10,25 +17,37 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-web
   cancel-in-progress: true
 
 jobs:
   build:
+    name: Build web
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
-      - run: npm run build
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build --workspace=apps/web
+        env:
+          VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
+          VITE_TURNSTILE_SITE_KEY: ${{ vars.VITE_TURNSTILE_SITE_KEY }}
+
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: apps/web/dist
 
   deploy:
+    name: Deploy to Pages
     needs: build
     runs-on: ubuntu-latest
     environment:

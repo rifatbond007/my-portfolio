@@ -201,7 +201,13 @@ export default function Sidebar({
         <p className="text-center text-sm mb-4">
           Let's discuss your project!
         </p>
-        <button className="w-full bg-neon text-black px-4 py-2 font-bold hover:bg-black hover:text-white">
+        <button
+          type="button"
+          onClick={() => {
+            import("../lib/cal").then((m) => m.scheduleMeeting());
+          }}
+          className="w-full bg-neon text-black px-4 py-2 font-bold hover:bg-black hover:text-white"
+        >
           Book a Meeting
         </button>
       </div>
