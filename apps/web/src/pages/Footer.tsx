@@ -18,15 +18,15 @@ export default function Footer() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-bold hover:text-neon"
+              className="flex items-center gap-2 text-xs font-bold hover:text-neon"
             >
-              <Icon className="w-5 h-5" />
+              <Icon className="w-4 h-4" />
               <span className="hidden sm:inline">{label}</span>
             </a>
           ))}
         </div>
         <div>
-          <p className="text-sm font-bold">Made by rifatbroh | {new Date().getFullYear()}</p>
+          <p className="text-xs font-bold">Made by rifatbroh | {new Date().getFullYear()}</p>
         </div>
       </div>
     </div>
