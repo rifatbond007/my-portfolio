@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { ContactDialog } from "./components/ContactDialog";
 import Sidebar from "./pages/Sidebar";
 import Footer from "./pages/Footer";
 import AboutMe from "./pages/AboutMe";
@@ -12,7 +11,6 @@ type Section = "about" | "projects" | "article" | "problemSolving";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<Section>("about");
-  const [isContactOpen, setIsContactOpen] = useState(false);
 
   // Scroll to top on mobile when navigating between sections.
   useEffect(() => {
@@ -46,14 +44,12 @@ export default function App() {
           <Sidebar
             activeSection={activeSection}
             onSectionChange={setActiveSection}
-            onContactClick={() => setIsContactOpen(true)}
             onResumeDownload={handleDownloadResume}
           />
           <div className="p-4 md:p-6 lg:p-8 bg-white">{renderPage()}</div>
         </div>
         <Footer />
       </div>
-      <ContactDialog open={isContactOpen} onOpenChange={setIsContactOpen} />
     </div>
   );
 }

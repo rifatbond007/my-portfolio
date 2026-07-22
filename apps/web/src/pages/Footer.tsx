@@ -1,10 +1,9 @@
-import { Github, Linkedin, Facebook, Instagram } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const socialLinks = [
   { href: "https://github.com/rifatbond007", Icon: Github, label: "GitHub" },
   { href: "https://www.linkedin.com/in/rifat-hossain-6b21741b3/", Icon: Linkedin, label: "LinkedIn" },
-  { href: "https://www.facebook.com/mohammad.rifat.800703", Icon: Facebook, label: "Facebook" },
-  { href: "https://www.instagram.com/rifatbroh_39/", Icon: Instagram, label: "Instagram" },
+  { href: "mailto:rifat164440@gmail.com", Icon: Mail, label: "Gmail" },
 ] as const;
 
 export default function Footer() {

@@ -21,14 +21,12 @@ type Section = "about" | "projects" | "article" | "problemSolving";
 interface SidebarProps {
   activeSection: Section;
   onSectionChange: (section: Section) => void;
-  onContactClick: () => void;
   onResumeDownload: () => void;
 }
 
 export default function Sidebar({
   activeSection,
   onSectionChange,
-  onContactClick,
   onResumeDownload,
 }: SidebarProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -104,12 +102,13 @@ export default function Sidebar({
               </svg>
               Resume
             </button>
-            
             <button
-              onClick={onContactClick}
+              onClick={() => {
+                import("../lib/cal").then((m) => m.scheduleMeeting());
+              }}
               className="flex flex-1 items-center justify-center gap-2 bg-neon text-black px-3 py-2.5 text-sm font-bold hover:bg-black hover:text-white"
             >
-              Contact Me
+              Book Meeting
             </button>
           </div>
         </div>
@@ -192,25 +191,6 @@ export default function Sidebar({
     </div>
   </div>
 </div>
-
-      {/* Meeting Bar Section */}
-      <div className="border-2 border-black p-6">
-        <h3 className="font-bold mb-3 text-center uppercase">
-          Schedule a Meeting
-        </h3>
-        <p className="text-center text-sm mb-4">
-          Let's discuss your project!
-        </p>
-        <button
-          type="button"
-          onClick={() => {
-            import("../lib/cal").then((m) => m.scheduleMeeting());
-          }}
-          className="w-full bg-neon text-black px-4 py-2 font-bold hover:bg-black hover:text-white"
-        >
-          Book a Meeting
-        </button>
-      </div>
 
       {/* Mobile Drawer */}
       {isDrawerOpen && (
