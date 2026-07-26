@@ -8,7 +8,7 @@ Turborepo + npm workspaces. Two apps, one shared package:
 |---------|------|------|---------------|
 | `@portfolio/web` | `apps/web/` | React 19 + Vite 7 + Tailwind v4 | GitHub Pages |
 | `@portfolio/api` | `apps/api/` | Hono on Cloudflare Workers | Cloudflare Workers |
-| `@portfolio/shared` | `packages/shared/` | Shared code | consumed by both |
+| `@portfolio/shared` | `packages/shared/` | Shared code (currently empty placeholder) | consumed by both |
 
 ## Commands
 
@@ -30,7 +30,7 @@ No test runner exists.
 
 - **Entry**: `apps/web/src/main.jsx` → `apps/web/src/App.tsx`
 - **No router**: Page switching via `useState<Section>` in `App.tsx`. 4 sections: `about`, `projects`, `article`, `problemSolving`.
-- **UI primitives**: `apps/web/src/components/ui/` (Radix Dialog, Input, Textarea). Utility `cn()` at `apps/web/src/lib/cn.ts`.
+- **Utility**: `apps/web/src/lib/cn.ts` (className joiner).
 - **Page components**: `apps/web/src/pages/`. Reusable cards: `apps/web/src/components/`.
 - **Cal.com integration**: `apps/web/src/lib/cal.ts` — dynamically imports `@calcom/embed-react` to open a meeting popup.
 - **Types**: `apps/web/src/types/images.d.ts` — bare module declarations for `.png`, `.jpg`, `.jpeg`, `.svg`, `.gif`.
@@ -67,5 +67,4 @@ Key vars: `VITE_API_BASE_URL`.
 
 - **Base path**: `/` (`apps/web/vite.config.js`).
 - **Loader**: 3-second terminal-style loading animation on initial mount (hardcoded in `App.tsx`).
-- **ImageWithFallback**: `apps/web/src/components/ImageWithFallback.tsx` handles broken image URLs.
 - **ESLint**: `no-unused-vars` error with `varsIgnorePattern: '^[A-Z_]'`, only checks `**/*.{js,jsx}`.

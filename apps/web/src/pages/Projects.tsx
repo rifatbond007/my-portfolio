@@ -24,7 +24,7 @@ const projects = [
 export default function Projects() {
   return (
     <div className="space-y-6">
-      <h2 className="text-4xl uppercase font-bold tracking-wide"><span className="text-neon">//</span> Projects</h2>
+      <h2 className="text-2xl uppercase font-bold tracking-wide"><span className="text-neon">//</span> Projects</h2>
       <div className="space-y-6">
         {projects.map((project) => (
           <ProjectCard

@@ -92,10 +92,10 @@ export default function Sidebar({
           <div className="flex flex-row gap-2 mt-8">
             <button
               onClick={onResumeDownload}
-              className="group flex flex-1 items-center justify-center gap-2 border-2 border-black px-3 py-2.5 text-sm font-bold hover:bg-neon hover:text-black"
+              className="group flex flex-1 items-center justify-center gap-2 border-2 border-black px-2.5 py-2 text-xs font-bold hover:bg-neon hover:text-black"
             >
               <svg 
-                className="w-4 h-4" 
+                className="w-3.5 h-3.5" 
                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -106,7 +106,7 @@ export default function Sidebar({
               onClick={() => {
                 import("../lib/cal").then((m) => m.scheduleMeeting());
               }}
-              className="flex flex-1 items-center justify-center gap-2 bg-neon text-black px-3 py-2.5 text-sm font-bold hover:bg-black hover:text-white"
+              className="flex flex-1 items-center justify-center gap-2 bg-neon text-black px-2.5 py-2 text-xs font-bold hover:bg-black hover:text-white"
             >
               Book Meeting
             </button>
@@ -134,7 +134,7 @@ export default function Sidebar({
 {/* Working Experience */}
 <div className="border-2 border-black p-6">
   <div className="flex items-center gap-2 mb-6">
-    <h3 className="text-xl font-bold uppercase">Working Experience</h3>
+    <h3 className="text-2xl font-bold uppercase">Working Experience</h3>
   </div>
 
   <div className="space-y-6 relative">
@@ -145,9 +145,9 @@ export default function Sidebar({
     <div className="relative pl-8">
       <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black bg-neon z-10"></div>
       <div>
-        <h4 className="font-bold text-sm leading-tight uppercase">HR Intern (Remote)</h4>
-        <p className="text-xs font-bold mt-0.5">Gao Tek Inc</p>
-        <p className="text-[10px] font-bold mt-1 tracking-tighter uppercase">{formatDate(GAO_TEK_START)} — Present</p>
+        <h4 className="font-bold text-xs leading-tight uppercase">HR Intern (Remote)</h4>
+        <p className="text-xs text-[#71717a] mt-0.5">Gao Tek Inc</p>
+        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">{formatDate(GAO_TEK_START)} — Present</p>
       </div>
     </div>
 
@@ -155,9 +155,9 @@ export default function Sidebar({
     <div className="relative pl-8">
       <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black z-10"></div>
       <div>
-        <h4 className="font-bold text-sm leading-tight uppercase">Software Engineer</h4>
-        <p className="text-xs font-bold mt-0.5">BCC Internship</p>
-        <p className="text-[10px] font-bold mt-1 tracking-tighter uppercase">2025 — 2026</p>
+        <h4 className="font-bold text-xs leading-tight uppercase">Software Engineer</h4>
+        <p className="text-xs text-[#71717a] mt-0.5">BCC Internship</p>
+        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">2025 — 2026</p>
       </div>
     </div>
 
@@ -165,28 +165,28 @@ export default function Sidebar({
     <div className="relative pl-8">
       <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black z-10"></div>
       <div>
-        <h4 className="font-bold text-sm leading-tight uppercase">Problem Solver</h4>
-        <p className="text-xs font-bold mt-0.5">Codeforces/Leetcode</p>
-        <p className="text-[10px] font-bold mt-1 tracking-tighter uppercase">2023 — 2025</p>
+        <h4 className="font-bold text-xs leading-tight uppercase">Problem Solver</h4>
+        <p className="text-xs text-[#71717a] mt-0.5">Codeforces/Leetcode</p>
+        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">2023 — 2025</p>
       </div>
     </div>
 
     <div className="relative pl-8">
       <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black z-10"></div>
       <div>
-        <h4 className="font-bold text-sm leading-tight uppercase">Frontend Developer</h4>
-        <p className="text-xs font-bold mt-0.5">Client Based</p>
-        <p className="text-[10px] font-bold mt-1 tracking-tighter uppercase">2022 — 2023</p>
+        <h4 className="font-bold text-xs leading-tight uppercase">Frontend Developer</h4>
+        <p className="text-xs text-[#71717a] mt-0.5">Client Based</p>
+        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">2022 — 2023</p>
       </div>
     </div>
 
-    {/* University Role */}
+    {/* Frontend Developer */}
     <div className="relative pl-8">
       <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black z-10"></div>
       <div>
-        <h4 className="font-bold text-sm leading-tight uppercase">Wordpress Designer</h4>
-        <p className="text-xs font-bold mt-0.5">Fiver</p>
-        <p className="text-[10px] font-bold mt-1 tracking-tighter uppercase">2021 — 2022</p>
+        <h4 className="font-bold text-xs leading-tight uppercase">Wordpress Designer</h4>
+        <p className="text-xs text-[#71717a] mt-0.5">Fiver</p>
+        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">2021 — 2022</p>
       </div>
     </div>
   </div>

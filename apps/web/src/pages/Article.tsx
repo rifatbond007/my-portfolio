@@ -33,7 +33,7 @@ export default function Article() {
     <section className="py-2">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h2 className="text-4xl font-bold uppercase tracking-wide"><span className="text-neon">//</span> Technical Writing</h2>
+          <h2 className="text-2xl font-bold uppercase tracking-wide"><span className="text-neon">//</span> Technical Writing</h2>
           <p className="mt-1 text-sm">Sharing insights on distributed systems and engineering culture.</p>
         </div>
         <div className="border-2 border-black p-2"><BookOpen size={24} /></div>

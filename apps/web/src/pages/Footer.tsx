@@ -1,32 +1,8 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-
-const socialLinks = [
-  { href: "https://github.com/rifatbond007", Icon: Github, label: "GitHub" },
-  { href: "https://www.linkedin.com/in/rifat-hossain-6b21741b3/", Icon: Linkedin, label: "LinkedIn" },
-  { href: "mailto:rifat164440@gmail.com", Icon: Mail, label: "Gmail" },
-] as const;
-
 export default function Footer() {
   return (
     <div className="mt-12 pt-8 border-t-2 border-black">
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div className="flex flex-wrap justify-center gap-6">
-          {socialLinks.map(({ href, Icon, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs font-bold hover:text-neon"
-            >
-              <Icon className="w-4 h-4" />
-              <span className="hidden sm:inline">{label}</span>
-            </a>
-          ))}
-        </div>
-        <div>
-          <p className="text-xs font-bold">Made by rifatbroh | {new Date().getFullYear()}</p>
-        </div>
+      <div className="flex justify-center">
+        <p className="text-xs font-bold">Made by rifatbroh | {new Date().getFullYear()}</p>
       </div>
     </div>
   );

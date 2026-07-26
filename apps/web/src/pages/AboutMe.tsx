@@ -1,5 +1,6 @@
 import { HeroSection } from "../components/HeroSection";
 import { SkillList } from "../components/SkillList";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const awards = [
   { title: "CHAMPION", event: "Spring Fest Hackathon", year: "2026", location: "Cumilla, BD" },
@@ -23,25 +24,51 @@ const skillCategories = [
 
 const description = [
   <>
-    I'm a <span className="font-bold text-neon">Software Engineer</span> designing distributed infrastructure. I build resilient services, observability pipelines, and APIs that scale.
+    Software Engineer who refactors first, ships second. I build backend services, wire up observability, and break codebases apart to see how they hold up. Whatever I'm working on, the question I keep asking is: <strong><em>can this survive production?</em></strong>
   </>,
-  "Currently, I primarily work with JavaScript/TypeScript and Python, with C/C++ for performance-critical components. I care about clean architecture, measurable reliability, and shipping work that holds up in production.",
+];
+
+const socialLinks = [
+  {
+    href: "https://github.com/rifatbond007",
+    icon: <Github className="w-4 h-4" />,
+    label: "GitHub",
+  },
+  {
+    href: "https://www.linkedin.com/in/rifat-hossain-6b21741b3/",
+    icon: <Linkedin className="w-4 h-4" />,
+    label: "LinkedIn",
+  },
+  {
+    href: "mailto:rifat164440@gmail.com",
+    icon: <Mail className="w-4 h-4" />,
+    label: "Email",
+  },
+  {
+    href: "https://www.tiktok.com/@rifatbroh",
+    icon: (
+      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13.2a8.19 8.19 0 004.78 1.53V11.3a4.85 4.85 0 01-.2-.61z"/>
+      </svg>
+    ),
+    label: "TikTok",
+    primary: true,
+  },
 ];
 
 export default function AboutMe() {
   return (
     <>
       <HeroSection
-        name="Rifat Hossain"
-        title="Software Engineer building resilient backend systems."
         description={description}
+        socialLinks={socialLinks}
       />
 
       <SkillList title="Skills" skills={skillCategories} />
 
       <section className="mt-8 pt-6 border-t border-black/15">
         <div className="flex items-baseline mb-4">
-          <h2 className="text-4xl uppercase font-bold tracking-wide">Awards</h2>
+          <h2 className="text-2xl uppercase font-bold tracking-wide">Awards</h2>
         </div>
         <ul>
           {awards.map((award) => (

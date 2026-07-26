@@ -9,7 +9,7 @@ const platforms = [
 export default function ProblemSolving() {
   return (
     <div className="max-w-4xl mx-auto py-8">
-      <h2 className="text-4xl uppercase font-bold tracking-wide mb-8"><span className="text-neon">//</span> Problem Solving</h2>
+      <h2 className="text-2xl uppercase font-bold tracking-wide mb-8"><span className="text-neon">//</span> Problem Solving</h2>
       
       <div className="space-y-6">
         {platforms.map((p) => (
