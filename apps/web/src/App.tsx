@@ -22,7 +22,7 @@ export default function App() {
 
   const handleDownloadResume = () => {
     window.open(
-      "https://drive.google.com/file/d/12NrKCTrThRDmJ47e97mH9KIG1W1xRVo_/view?usp=sharing",
+      "https://drive.google.com/file/d/1d_tVB-P8XOh29AibCe844DJ5PDOOnI2q/view?usp=sharing",
       "_blank",
       "noopener,noreferrer",
     );
