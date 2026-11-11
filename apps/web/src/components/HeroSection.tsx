@@ -15,7 +15,7 @@ interface HeroSectionProps {
 export function HeroSection({ description, socialLinks }: HeroSectionProps) {
   return (
     <div className="space-y-4">
-      <div className="space-y-3 text-sm md:text-base leading-relaxed">
+      <div className="space-y-3 text-sm md:text-base leading-relaxed text-justify hyphens-auto">
         {description.map((desc, index) => (
           <p key={index}>{desc}</p>
         ))}

@@ -141,13 +141,23 @@ export default function Sidebar({
     {/* Vertical Timeline Thread Line */}
     <div className="absolute left-1.75 top-2 bottom-2 w-0.5 bg-black"></div>
 
-    {/* Gao Tek Inc (Active) */}
+    {/* Cashless AI (Active) */}
     <div className="relative pl-8">
       <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black bg-neon z-10"></div>
       <div>
+        <h4 className="font-bold text-xs leading-tight uppercase">Software Engineer L1 (Remote)</h4>
+        <p className="text-xs text-[#71717a] mt-0.5">Cashless AI</p>
+        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">Sep 2026 — Present</p>
+      </div>
+    </div>
+
+    {/* Gao Tek Inc */}
+    <div className="relative pl-8">
+      <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black z-10"></div>
+      <div>
         <h4 className="font-bold text-xs leading-tight uppercase">HR Intern (Remote)</h4>
         <p className="text-xs text-[#71717a] mt-0.5">Gao Tek Inc</p>
-        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">{formatDate(GAO_TEK_START)} — Present</p>
+        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">{formatDate(GAO_TEK_START)} — Aug 2026</p>
       </div>
     </div>
 
@@ -171,16 +181,7 @@ export default function Sidebar({
       </div>
     </div>
 
-    <div className="relative pl-8">
-      <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black z-10"></div>
-      <div>
-        <h4 className="font-bold text-xs leading-tight uppercase">Frontend Developer</h4>
-        <p className="text-xs text-[#71717a] mt-0.5">Client Based</p>
-        <p className="text-[10px] text-[#71717a] mt-1 tracking-tighter uppercase">2022 — 2023</p>
-      </div>
-    </div>
-
-    {/* Frontend Developer */}
+    {/* Wordpress Designer */}
     <div className="relative pl-8">
       <div className="absolute left-0 top-1 w-4 h-4 border-2 border-black z-10"></div>
       <div>
