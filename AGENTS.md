@@ -70,5 +70,5 @@ Key vars: `VITE_API_BASE_URL`.
 
 - Semantic versioning. The repo version lives in the root `package.json` (kept in sync with `apps/web/package.json`); `apps/api` and `packages/shared` are versioned separately.
 - Every release gets an entry in `CHANGELOG.md` and a `vX.Y.Z` git tag on `main` with a matching GitHub release.
-- Flow: bump with `npm version X.Y.Z --no-git-tag-version --include-workspace-root -w @portfolio/web`, update `CHANGELOG.md`, open a PR from `release/vX.Y.Z`, then tag the merge commit on `main` and publish the release (`gh release create vX.Y.Z --notes-file …`).
+- Flow: bump with `npm version X.Y.Z --no-git-tag-version --include-workspace-root -w @portfolio/web`, update `CHANGELOG.md`, open a PR from the `dev-rifat` branch, then tag the merge commit on `main` and publish the release (`gh release create vX.Y.Z --notes-file …`).
 - Current: v2.0.0 (redesign). v1.0.0 = commit `d526f7f`, the brutalist version.
