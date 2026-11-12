@@ -1,6 +1,6 @@
-import { ProjectCard } from "../components/ProjectCard";
+import { ProjectCard, type Project } from "../components/ProjectCard";
 
-const projects = [
+const projects: Project[] = [
   {
     title: "E-Commerce Platform",
     description:
@@ -23,18 +23,19 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="space-y-6">
-      <h2 className="text-2xl uppercase font-bold tracking-wide"><span className="text-neon">//</span> Projects</h2>
-      <div className="space-y-6">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            technologies={project.technologies}
-          />
-        ))}
+    <section>
+      <div className="flex items-baseline justify-between gap-4">
+        <h2 className="text-2xl font-bold uppercase tracking-wide">Projects</h2>
+        <span className="text-xs font-bold uppercase text-muted">
+          {String(projects.length).padStart(2, "0")} Projects
+        </span>
       </div>
-    </div>
+
+      <ol className="mt-4 border-t-2 border-black">
+        {projects.map((project, i) => (
+          <ProjectCard key={project.title} index={i} project={project} />
+        ))}
+      </ol>
+    </section>
   );
 }

@@ -1,17 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  --color-neon: #00FF00;
-  --color-muted: #71717a;
-  --color-accent: #00FF00;
+  --color-page: #fafaf9;
+  --color-card: #ffffff;
+  --color-hover: #f5f5f4;
+  --color-line: #e7e5e4;
+  --color-fg: #1c1917;
+  --color-muted: #78716c;
+  --color-accent: #047857;
+  --color-accent-strong: #065f46;
+
+  --animate-blink: blink 2.5s ease-in-out infinite;
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.1;
+    }
+  }
 }
 
 @layer base {
   * {
-    border-color: #000;
+    border-color: var(--color-line);
   }
 
   body {
+    background: var(--color-page);
+    color: var(--color-fg);
     font-family: "Courier New", Courier, monospace;
+  }
+}
+
+/* Hide the scrollbar but keep the element scrollable. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

@@ -29,22 +29,20 @@ No test runner exists.
 ## Architecture
 
 - **Entry**: `apps/web/src/main.jsx` → `apps/web/src/App.tsx`
-- **No router**: Page switching via `useState<Section>` in `App.tsx`. 4 sections: `about`, `projects`, `article`, `problemSolving`.
+- **No router**: Page switching via `useState<Section>` in `App.tsx`. 4 sections: `about`, `projects`, `article`, `problemSolving`, switched via the tab bar in `ProfileHeader`.
 - **Utility**: `apps/web/src/lib/cn.ts` (className joiner).
-- **Page components**: `apps/web/src/pages/`. Reusable cards: `apps/web/src/components/`.
+- **Page components**: `apps/web/src/pages/` (one per tab, plus `Footer`). Reusable pieces: `apps/web/src/components/`.
 - **Cal.com integration**: `apps/web/src/lib/cal.ts` — dynamically imports `@calcom/embed-react` to open a meeting popup.
 - **Types**: `apps/web/src/types/images.d.ts` — bare module declarations for `.png`, `.jpg`, `.jpeg`, `.svg`, `.gif`.
 
-## Brutalist Design System
+## Design System (light profile layout)
 
-- **All monospace**: `font-family: "Courier New", Courier, monospace` in `apps/web/src/index.css`.
-- **Neon green (#00FF00) accent**: `--color-neon` in CSS via `@theme`. Used for active nav items, buttons, badges, highlights.
-- **Pure B&W base**: No gradients, no shadows.
-- **Thick black borders**: `border-2` or `border-4 border-black` on all cards, inputs, buttons, sections.
-- **No rounded corners**: `rounded-none` everywhere.
-- **Oversized typography**: `text-4xl`/`text-5xl` uppercase headings with `font-bold`.
-- **All borders default to `#000`** via global `* { border-color: #000; }`.
-- **No animations** (framer-motion removed). Terminal loader kept as-is.
+- **Layout**: `components/ProfileHeader.tsx` (one `border-2 border-black` profile card: short cover, round black-bordered avatar, uppercase name, tagline, location + square icon-only social links, stacked Book Meeting + Resume buttons; then a rounded pill tab bar with a subtle light border, icon + uppercase labels, and a solid black active tab). Page width is `max-w-5xl` on top; below, a `270px | 1fr` grid with the Working Experience timeline (`components/IntroCards.tsx`, thick black border box, vertical line with square markers; fixed on desktop) on the left and the active tab's content on the right. Below `md` the tab bar is hidden; a ⋮ button opens a slide-in drawer menu, and Working Experience comes before the tab content (same as the old sidebar layout).
+- **Font**: monospace (`"Courier New", Courier, monospace`) on `body`. Section headings are `text-2xl font-bold uppercase`.
+- **Tokens** in `@theme` (`apps/web/src/index.css`): `page` #fafaf9, `card` #ffffff, `hover` #f5f5f4, `line` #e7e5e4, `fg` #1c1917, `muted` #78716c, `accent` #047857 (emerald), `accent-strong` #065f46. Use them as `bg-card`, `text-muted`, etc.
+- **Content sections**: `components/Card.tsx` `Card` is a plain section separated by a top divider line (no box, no shadow); `Chip` is a small bordered tag.
+- **No shadows.** All borders default to `--color-line` via the global `*` rule; the experience box uses explicit `border-black`.
+- **Shared data**: profile name and image URLs in `lib/profile.ts`; the `Section` type in `types/section.ts`.
 
 ## Tailwind CSS 4
 
@@ -66,5 +64,11 @@ Key vars: `VITE_API_BASE_URL`.
 ## Notable
 
 - **Base path**: `/` (`apps/web/vite.config.js`).
-- **Loader**: 3-second terminal-style loading animation on initial mount (hardcoded in `App.tsx`).
 - **ESLint**: `no-unused-vars` error with `varsIgnorePattern: '^[A-Z_]'`, only checks `**/*.{js,jsx}`.
+
+## Releases
+
+- Semantic versioning. The repo version lives in the root `package.json` (kept in sync with `apps/web/package.json`); `apps/api` and `packages/shared` are versioned separately.
+- Every release gets an entry in `CHANGELOG.md` and a `vX.Y.Z` git tag on `main` with a matching GitHub release.
+- Flow: bump with `npm version X.Y.Z --no-git-tag-version --include-workspace-root -w @portfolio/web`, update `CHANGELOG.md`, open a PR from `release/vX.Y.Z`, then tag the merge commit on `main` and publish the release (`gh release create vX.Y.Z --notes-file …`).
+- Current: v2.0.0 (redesign). v1.0.0 = commit `d526f7f`, the brutalist version.

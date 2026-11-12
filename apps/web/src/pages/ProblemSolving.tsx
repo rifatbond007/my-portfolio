@@ -1,3 +1,4 @@
+import { Card, Chip } from "../components/Card";
 import { PlatformCard } from "../components/PlatformCard";
 
 const platforms = [
@@ -8,10 +9,8 @@ const platforms = [
 
 export default function ProblemSolving() {
   return (
-    <div className="max-w-4xl mx-auto py-8">
-      <h2 className="text-2xl uppercase font-bold tracking-wide mb-8"><span className="text-neon">//</span> Problem Solving</h2>
-      
-      <div className="space-y-6">
+    <Card title="Problem Solving">
+      <ul className="divide-y">
         {platforms.map((p) => (
           <PlatformCard
             key={p.platform}
@@ -21,12 +20,11 @@ export default function ProblemSolving() {
             label={p.label}
           />
         ))}
+      </ul>
+      <div className="mt-4 flex flex-wrap gap-2 border-t pt-4">
+        <Chip>Top 30% Active</Chip>
+        <Chip>C++ / Python / DSA / Algo</Chip>
       </div>
-
-      <div className="mt-8 flex flex-wrap gap-4 text-xs font-bold uppercase">
-        <span className="border-2 border-black px-3 py-1 hover:border-neon">Top 30% Active</span>
-        <span className="border-2 border-black px-3 py-1 hover:border-neon">C++ / Python / DSA / Algo</span>
-      </div>
-    </div>
+    </Card>
   );
 }
