@@ -88,6 +88,18 @@ Repository → Settings → Secrets and variables → Actions:
 - Push to `main` → CI runs lint + typecheck + build.
 - `deploy-web.yml` builds and deploys the frontend to GitHub Pages when `apps/web/**` or `packages/shared/**` changes.
 - `deploy-api.yml` deploys the Worker to Cloudflare when `apps/api/**` or `packages/shared/**` changes.
+- `publish-image.yml` publishes the Docker image to `ghcr.io` when a GitHub release is published.
+
+## Docker image
+
+Each GitHub release publishes the site as a Docker image (nginx serving the built `apps/web`) to GitHub Packages:
+
+```bash
+docker run --rm -p 8080:80 ghcr.io/rifatbond007/my-portfolio:latest
+# open http://localhost:8080
+```
+
+Tags: `latest`, `X.Y.Z` and `X.Y` for each release. Build locally with `docker build -t my-portfolio .`.
 
 ## Architecture notes
 
