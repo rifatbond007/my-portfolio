@@ -19,12 +19,12 @@ export async function openCalPopup(link: string = CAL_LINK) {
   const { getCalApi } = await loadCal();
   const cal = await getCalApi({ namespace: "30min" });
 
-  // Theme + brand color (neon green). Both light + dark keys required by type.
+  // Theme + brand color (accent green). Both light + dark keys required by type.
   cal("ui", {
     theme: "light",
     cssVarsPerTheme: {
-      light: { "cal-brand": "#00FF00" },
-      dark: { "cal-brand": "#00FF00" },
+      light: { "cal-brand": "#047857" },
+      dark: { "cal-brand": "#047857" },
     },
   });
 
