@@ -6,7 +6,7 @@ Turborepo + npm workspaces. Two apps, one shared package:
 
 | Package | Path | Tech | Deploy target |
 |---------|------|------|---------------|
-| `@portfolio/web` | `apps/web/` | React 19 + Vite 7 + Tailwind v4 | GitHub Pages |
+| `@portfolio/web` | `apps/web/` | React 19 + Vite 7 + Tailwind v4 | GitHub Pages + Docker image on ghcr.io |
 | `@portfolio/api` | `apps/api/` | Hono on Cloudflare Workers | Cloudflare Workers |
 | `@portfolio/shared` | `packages/shared/` | Shared code (currently empty placeholder) | consumed by both |
 
@@ -71,4 +71,5 @@ Key vars: `VITE_API_BASE_URL`.
 - Semantic versioning. The repo version lives in the root `package.json` (kept in sync with `apps/web/package.json`); `apps/api` and `packages/shared` are versioned separately.
 - Every release gets an entry in `CHANGELOG.md` and a `vX.Y.Z` git tag on `main` with a matching GitHub release.
 - Flow: bump with `npm version X.Y.Z --no-git-tag-version --include-workspace-root -w @portfolio/web`, update `CHANGELOG.md`, open a PR from the `dev-rifat` branch, then tag the merge commit on `main` and publish the release (`gh release create vX.Y.Z --notes-file …`).
-- Current: v2.0.0 (redesign). v1.0.0 = commit `d526f7f`, the brutalist version.
+- Publishing a GitHub release also runs `publish-image.yml`, which pushes `ghcr.io/rifatbond007/my-portfolio` (`Dockerfile` + `docker/nginx.conf`) tagged `X.Y.Z`, `X.Y`, `latest`.
+- Current: v2.1.0 (Docker image). v2.0.0 = redesign. v1.0.0 = commit `d526f7f`, the brutalist version.

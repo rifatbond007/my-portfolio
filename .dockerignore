@@ -1,0 +1,10 @@
+**/node_modules
+**/dist
+**/.turbo
+**/.wrangler
+.git
+.github
+.env
+.env.*
+!.env.example
+*.log

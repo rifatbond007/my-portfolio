@@ -3,6 +3,12 @@
 All notable changes to this portfolio are recorded here.
 Versions follow [Semantic Versioning](https://semver.org/); each release is tagged `vX.Y.Z` on `main`.
 
+## [2.1.0] — 2026-11-13
+
+### Added
+- **Docker image** published to GitHub Packages: `ghcr.io/rifatbond007/my-portfolio` (nginx serving the built site, `linux/amd64` + `linux/arm64`). Run it with `docker run --rm -p 8080:80 ghcr.io/rifatbond007/my-portfolio:latest`.
+- `publish-image.yml` workflow: builds and pushes the image on every published GitHub release, tagged `X.Y.Z`, `X.Y` and `latest`.
+
 ## [2.0.0] — 2026-11-13
 
 Second version of the portfolio: a full redesign of the layout and visual style.
@@ -32,5 +38,6 @@ First version of the portfolio, as deployed before the redesign.
 - Sidebar profile card with navigation; About, Projects, Competitive and Article pages.
 - Turborepo monorepo (`apps/web`, `apps/api`, `packages/shared`) deployed to GitHub Pages and Cloudflare Workers.
 
+[2.1.0]: https://github.com/rifatbond007/my-portfolio/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/rifatbond007/my-portfolio/compare/v1.0.0...v2.0.0
 [1.0.0]: https://github.com/rifatbond007/my-portfolio/releases/tag/v1.0.0
