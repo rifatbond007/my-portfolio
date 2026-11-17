@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   CalendarDays,
+  Camera,
   FileText,
   FolderGit2,
   Github,
@@ -8,7 +9,6 @@ import {
   Mail,
   MapPin,
   MoreVertical,
-  Newspaper,
   Trophy,
   User,
   X,
@@ -22,7 +22,7 @@ const TABS: { id: Section; label: string; icon: LucideIcon }[] = [
   { id: "about", label: "About", icon: User },
   { id: "projects", label: "Projects", icon: FolderGit2 },
   { id: "problemSolving", label: "Competitive", icon: Trophy },
-  { id: "article", label: "Articles", icon: Newspaper },
+  { id: "moments", label: "Moments", icon: Camera },
 ];
 
 // Labels used in the mobile drawer (same as the previous sidebar menu).
@@ -30,7 +30,7 @@ const DRAWER_ITEMS: { id: Section; label: string }[] = [
   { id: "about", label: "About Me" },
   { id: "projects", label: "Projects" },
   { id: "problemSolving", label: "Competitive" },
-  { id: "article", label: "Article" },
+  { id: "moments", label: "Moments" },
 ];
 
 const SOCIAL_LINKS = [

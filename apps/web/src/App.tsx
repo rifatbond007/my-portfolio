@@ -6,7 +6,7 @@ import { ExperienceCard } from "./components/IntroCards";
 import Footer from "./pages/Footer";
 import AboutMe from "./pages/AboutMe";
 import Projects from "./pages/Projects";
-import Article from "./pages/Article";
+import Moments from "./pages/Moments";
 import ProblemSolving from "./pages/ProblemSolving";
 import type { Section } from "./types/section";
 
@@ -52,7 +52,7 @@ export default function App() {
     switch (activeSection) {
       case "about": return <AboutMe />;
       case "projects": return <Projects />;
-      case "article": return <Article />;
+      case "moments": return <Moments />;
       case "problemSolving": return <ProblemSolving />;
     }
   };

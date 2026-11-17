@@ -29,7 +29,7 @@ No test runner exists.
 ## Architecture
 
 - **Entry**: `apps/web/src/main.jsx` → `apps/web/src/App.tsx`
-- **No router**: Page switching via `useState<Section>` in `App.tsx`. 4 sections: `about`, `projects`, `article`, `problemSolving`, switched via the tab bar in `ProfileHeader`.
+- **No router**: Page switching via `useState<Section>` in `App.tsx`. 4 sections: `about`, `projects`, `problemSolving`, `moments`, switched via the tab bar in `ProfileHeader`.
 - **Utility**: `apps/web/src/lib/cn.ts` (className joiner).
 - **Page components**: `apps/web/src/pages/` (one per tab, plus `Footer`). Reusable pieces: `apps/web/src/components/`.
 - **Cal.com integration**: `apps/web/src/lib/cal.ts` — dynamically imports `@calcom/embed-react` to open a meeting popup.
