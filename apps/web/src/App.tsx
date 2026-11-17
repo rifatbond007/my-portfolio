@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import ProfileHeader from "./components/ProfileHeader";
 import { ExperienceCard } from "./components/IntroCards";
@@ -11,6 +11,26 @@ import type { Section } from "./types/section";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<Section>("about");
+  const contentRef = useRef<HTMLDivElement>(null);
+  const asideRef = useRef<HTMLElement>(null);
+
+  // Desktop: only the content column scrolls, so forward wheel scrolling from anywhere
+  // else on the page (header, experience sidebar, margins) to it.
+  useEffect(() => {
+    const onWheel = (e: WheelEvent) => {
+      const content = contentRef.current;
+      if (!content || window.innerWidth < 1024 || e.ctrlKey) return;
+      const target = e.target as Node;
+      if (content.contains(target)) return;
+      // Let the sidebar scroll itself if it actually overflows (short screens).
+      const aside = asideRef.current;
+      if (aside?.contains(target) && aside.scrollHeight > aside.clientHeight) return;
+      const scale = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? content.clientHeight : 1;
+      content.scrollBy({ top: e.deltaY * scale });
+    };
+    window.addEventListener("wheel", onWheel, { passive: true });
+    return () => window.removeEventListener("wheel", onWheel);
+  }, []);
 
   // Scroll to top on mobile when navigating between sections.
   useEffect(() => {
@@ -47,10 +67,10 @@ export default function App() {
       />
 
       <main className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-4 px-4 py-6 lg:min-h-0 lg:flex-1 lg:grid-cols-[270px_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)] lg:gap-10 lg:px-8 lg:pb-0">
-        <aside className="no-scrollbar lg:overflow-y-auto">
+        <aside ref={asideRef} className="no-scrollbar lg:overflow-y-auto">
           <ExperienceCard />
         </aside>
-        <div className="no-scrollbar min-w-0 lg:overflow-y-auto">
+        <div ref={contentRef} className="no-scrollbar min-w-0 lg:overflow-y-auto">
           <div className="space-y-8">{renderPage()}</div>
           <Footer />
         </div>
