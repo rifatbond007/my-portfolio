@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import ProfileHeader from "./components/ProfileHeader";
+import Celebration from "./components/Celebration";
 import { ExperienceCard } from "./components/IntroCards";
 import Footer from "./pages/Footer";
 import AboutMe from "./pages/AboutMe";
@@ -75,6 +76,8 @@ export default function App() {
           <Footer />
         </div>
       </main>
+
+      <Celebration />
     </div>
   );
 }
