@@ -9,17 +9,16 @@ const awards = [
 ];
 
 const skillCategories = [
-  { label: "Languages", skills: "TypeScript, JavaScript, Python, C/C++, SQL" },
-  { label: "Backend", skills: "Node.js, Express.js, Flask, REST APIs" },
-  { label: "Messaging", skills: "RabbitMQ, BullMQ" },
-  { label: "Database", skills: "PostgreSQL, MySQL, MongoDB, Redis, Firebase" },
-  { label: "DevOps", skills: "Docker, Kubernetes, GitHub Actions" },
-  { label: "Cloud", skills: "AWS, Cloudflare, Bunny.net, cPanel" },
+  { label: "Languages", skills: "TypeScript, JavaScript, Python, Go, C/C++, SQL, YAML" },
+  { label: "Backend", skills: "Node.js, Express.js, Flask, REST APIs, RabbitMQ, BullMQ" },
+  { label: "Database", skills: "PostgreSQL, MySQL, MongoDB, DynamoDB, Redis, Firebase" },
+  { label: "DevOps", skills: "Docker, Kubernetes, GitHub Actions, Terraform, Pulumi" },
+  { label: "Cloud", skills: "AWS, Cloudflare, Bunny.net, cPanel, GitOps" },
   { label: "Observability", skills: "OpenTelemetry, Prometheus, Grafana, Loki" },
-  { label: "Testing", skills: "Jest, Cypress" },
+  { label: "Testing", skills: "SQA, Jest, Cypress" },
   { label: "Frontend", skills: "React, Next.js, Tailwind CSS, HTML/CSS" },
-  { label: "Others", skills: "Prompt Engineering" },
-  { label: "Soft Skills", skills: "Product Management, HR Management" },
+  { label: "Soft Skills", skills: "Team Lead, Product Management, HR Management" },
+  { label: "Others", skills: "Prompt Engineering, Spec-Driven & Agentic Development" },
 ];
 
 export default function AboutMe() {
